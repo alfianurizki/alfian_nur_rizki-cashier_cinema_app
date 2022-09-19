@@ -1,0 +1,49 @@
+FUNCTION Main
+    READ AND WRITE "Nama", "Film", "Tambahan" with string
+    READ AND WRITE "Harga", "Jumlah", "Diskon", "TotalSem", "Total", "Bayar", "Kembalian" with integer
+    
+    STORE "Tambahan" = "Ya"
+    STORE "Total" with 0
+    PRINT "Masukkan nama customer : "
+    READ "Nama"
+    WHILE Tambahan="Ya"
+        PRINT "Masukkan nama film : "
+        READ "Film"
+        PRINT "Masukkan jumlah tiket : "
+        READ "Jumlah"
+        PRINT "Masukkan harga tiket : "
+        READ "Harga"
+        STORE "TotalSem" = "Jumlah" * "Harga"
+        PRINT "Total harga : Rp "
+        PRINT "TotalSem"
+        PRINT "Apakah Anda ingin menambah tiket? [Ya/Tidak]"
+        READ "Tambahan"
+        IF Tambahan="Ya"
+        ELSE
+            STORE "Tambahan" = "Tidak"
+        END
+        STORE "Total" = "Total"+"TotalSem"
+    END
+    PRINT "Total harga : "
+    PRINT "Total"
+    IF "Total" >= 100000
+        STORE "Diskon" = 80/100 * "Total"
+        PRINT "Total harga setelah diskon : Rp "
+        PRINT "Diskon"
+    END
+    PRINT "Masukkan uang pembayaran : "
+    READ "Bayar"
+    IF "Bayar" >= "Diskon"
+        STORE "Kembalian" = "Bayar"-"Diskon"
+        PRINT "STRUK Pembayaran"
+        PRINT "CGV Cinemas"
+        PRINT "Customer : "
+        PRINT "Nama"
+        PRINT "Total : Rp "
+        PRINT "Diskon"
+        PRINT "Kembalian : "
+        PRINT "Kembalian"
+    ELSE
+        PRINT "Uang Anda kurang!"
+    END
+END FUNCTION
